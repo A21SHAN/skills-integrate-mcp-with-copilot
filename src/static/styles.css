@@ -28,6 +28,62 @@ header h1 {
   margin-bottom: 10px;
 }
 
+.header-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+#teacher-auth-toggle {
+  background-color: #ffffff;
+  color: #1a237e;
+  border: 1px solid #c5cae9;
+  font-size: 14px;
+  padding: 6px 12px;
+}
+
+#teacher-auth-toggle:hover {
+  background-color: #e8eaf6;
+}
+
+.auth-panel {
+  margin-top: 12px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.12);
+  text-align: left;
+}
+
+.auth-panel h3 {
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding-bottom: 8px;
+}
+
+.auth-panel .form-group {
+  margin-bottom: 10px;
+}
+
+.auth-panel input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #cfd8dc;
+}
+
+#teacher-auth-status {
+  margin-top: 10px;
+}
+
+#teacher-logout {
+  margin-top: 10px;
+  background-color: #b71c1c;
+}
+
+#teacher-logout:hover {
+  background-color: #8e0000;
+}
+
 main {
   display: flex;
   flex-wrap: wrap;
