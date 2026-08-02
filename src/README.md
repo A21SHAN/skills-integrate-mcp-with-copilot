@@ -5,7 +5,8 @@ A super simple FastAPI application that allows students to view and sign up for 
 ## Features
 
 - View all available extracurricular activities
-- Sign up for activities
+- Teacher login/logout for protected actions
+- Sign up and unregister students from activities (teachers only)
 
 ## Getting Started
 
@@ -30,7 +31,13 @@ A super simple FastAPI application that allows students to view and sign up for 
 | Method | Endpoint                                                          | Description                                                         |
 | ------ | ----------------------------------------------------------------- | ------------------------------------------------------------------- |
 | GET    | `/activities`                                                     | Get all activities with their details and current participant count |
-| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Sign up for an activity                                             |
+| POST   | `/auth/login`                                                     | Log in a teacher and receive a session token                        |
+| POST   | `/auth/logout`                                                    | Log out a teacher session                                            |
+| GET    | `/auth/session`                                                   | Validate the current teacher session token                          |
+| POST   | `/activities/{activity_name}/signup?email=student@mergington.edu` | Register a student for an activity (teacher only)                   |
+| DELETE | `/activities/{activity_name}/unregister?email=student@mergington.edu` | Unregister a student from an activity (teacher only)            |
+
+For teacher-only endpoints, include the `X-Teacher-Token` header from `/auth/login`.
 
 ## Data Model
 
@@ -47,4 +54,12 @@ The application uses a simple data model with meaningful identifiers:
    - Name
    - Grade level
 
-All data is stored in memory, which means data will be reset when the server restarts.
+All activity data and active teacher sessions are stored in memory, which means they reset when the server restarts.
+
+## Teacher Credentials
+
+Teacher usernames and passwords are stored in `teachers.json` and validated by the backend.
+Default accounts:
+
+- `ms.harper` / `greenhouse123`
+- `mr.ramirez` / `falcon2026`
